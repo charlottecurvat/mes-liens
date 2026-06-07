@@ -1,142 +1,183 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Présentation des projets</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liens projets</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            min-height: 100vh;
-            font-family: Arial, sans-serif;
-            background: #f5f7fa;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 40px;
-        }
+    body {
+      min-height: 100vh;
+      font-family: Inter, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(99, 102, 241, 0.25), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(14, 165, 233, 0.18), transparent 35%),
+        #0f172a;
+      color: #f8fafc;
+    }
 
-        .container {
-            max-width: 1200px;
-            width: 100%;
-        }
+    .page {
+      width: min(1100px, 90%);
+      margin: 0 auto;
+      padding: 80px 0;
+    }
 
-        h1 {
-            text-align: center;
-            margin-bottom: 15px;
-            color: #1f2937;
-        }
+    .hero {
+      text-align: center;
+      margin-bottom: 50px;
+    }
 
-        .subtitle {
-            text-align: center;
-            color: #6b7280;
-            margin-bottom: 50px;
-        }
+    .badge {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 8px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #c7d2fe;
+      font-size: 14px;
+    }
 
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
+    h1 {
+      font-size: clamp(38px, 6vw, 72px);
+      letter-spacing: -0.06em;
+      line-height: 1;
+    }
 
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-            transition: 0.2s;
-        }
+    .subtitle {
+      max-width: 520px;
+      margin: 20px auto 0;
+      color: #94a3b8;
+      font-size: 18px;
+    }
 
-        .card:hover {
-            transform: translateY(-5px);
-        }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
 
-        .card h2 {
-            margin-bottom: 15px;
-            color: #111827;
-        }
+    .card {
+      position: relative;
+      min-height: 260px;
+      padding: 28px;
+      text-decoration: none;
+      color: inherit;
+      border-radius: 28px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.25);
+      transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+    }
 
-        .card p {
-            color: #6b7280;
-            margin-bottom: 25px;
-            line-height: 1.5;
-        }
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.18), transparent 45%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
 
-        .btn {
-            display: inline-block;
-            text-decoration: none;
-            background: #2563eb;
-            color: white;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-weight: bold;
-        }
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.12);
+    }
 
-        .btn:hover {
-            background: #1d4ed8;
-        }
-    </style>
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card-number {
+      color: #818cf8;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .card h2 {
+      margin-top: 70px;
+      font-size: 30px;
+      letter-spacing: -0.04em;
+    }
+
+    .card p {
+      margin-top: 8px;
+      color: #94a3b8;
+      font-size: 16px;
+    }
+
+    .arrow {
+      position: absolute;
+      right: 24px;
+      bottom: 24px;
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #f8fafc;
+      color: #0f172a;
+      font-size: 22px;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover .arrow {
+      transform: rotate(45deg);
+    }
+
+    @media (max-width: 850px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        min-height: 220px;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <main class="page">
+    <section class="hero">
+      <p class="badge">Sélection de projets</p>
+      <h1>Ressources & plateformes</h1>
+      <p class="subtitle">
+        Accédez rapidement aux trois sites sélectionnés.
+      </p>
+    </section>
 
-<div class="container">
+    <section class="cards">
+      <a class="card" href="https://kodiakgas.com/power-solutions/" target="_blank">
+        <span class="card-number">01</span>
+        <h2>Kodiak Gas</h2>
+        <p>Power Solutions</p>
+        <span class="arrow">↗</span>
+      </a>
 
-    <h1>Présentation des projets</h1>
+      <a class="card" href="https://go.qct.io/qct-ai-pod/" target="_blank">
+        <span class="card-number">02</span>
+        <h2>QCT</h2>
+        <p>AI Pod</p>
+        <span class="arrow">↗</span>
+      </a>
 
-    <p class="subtitle">
-        Accès aux différents projets réalisés.
-    </p>
-
-    <div class="cards">
-
-        <div class="card">
-            <h2>Projet 1</h2>
-            <p>
-                Description courte du premier projet.
-            </p>
-
-            <a href="https://lien-projet-1.com"
-               target="_blank"
-               class="btn">
-                Consulter
-            </a>
-        </div>
-
-        <div class="card">
-            <h2>Projet 2</h2>
-            <p>
-                Description courte du second projet.
-            </p>
-
-            <a href="https://lien-projet-2.com"
-               target="_blank"
-               class="btn">
-                Consulter
-            </a>
-        </div>
-
-        <div class="card">
-            <h2>Projet 3</h2>
-            <p>
-                Description courte du troisième projet.
-            </p>
-
-            <a href="https://lien-projet-3.com"
-               target="_blank"
-               class="btn">
-                Consulter
-            </a>
-        </div>
-
-    </div>
-
-</div>
-
+      <a class="card" href="https://dynamisps.com/" target="_blank">
+        <span class="card-number">03</span>
+        <h2>Dynamis</h2>
+        <p>Power Solutions</p>
+        <span class="arrow">↗</span>
+      </a>
+    </section>
+  </main>
 </body>
 </html>
