@@ -2,15 +2,141 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Mes liens</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Présentation des projets</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #1f2937;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #6b7280;
+            margin-bottom: 50px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h2 {
+            margin-bottom: 15px;
+            color: #111827;
+        }
+
+        .card p {
+            color: #6b7280;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            background: #2563eb;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #1d4ed8;
+        }
+    </style>
 </head>
 <body>
-    <h1>Mes liens utiles</h1>
 
-    <ul>
-        <li><a href="https://site1.com">Site 1</a></li>
-        <li><a href="https://site2.com">Site 2</a></li>
-        <li><a href="https://site3.com">Site 3</a></li>
-    </ul>
+<div class="container">
+
+    <h1>Présentation des projets</h1>
+
+    <p class="subtitle">
+        Accès aux différents projets réalisés.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <h2>Projet 1</h2>
+            <p>
+                Description courte du premier projet.
+            </p>
+
+            <a href="https://lien-projet-1.com"
+               target="_blank"
+               class="btn">
+                Consulter
+            </a>
+        </div>
+
+        <div class="card">
+            <h2>Projet 2</h2>
+            <p>
+                Description courte du second projet.
+            </p>
+
+            <a href="https://lien-projet-2.com"
+               target="_blank"
+               class="btn">
+                Consulter
+            </a>
+        </div>
+
+        <div class="card">
+            <h2>Projet 3</h2>
+            <p>
+                Description courte du troisième projet.
+            </p>
+
+            <a href="https://lien-projet-3.com"
+               target="_blank"
+               class="btn">
+                Consulter
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
 </body>
 </html>
