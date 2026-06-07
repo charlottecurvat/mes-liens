@@ -4,159 +4,188 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Projects</title>
+<title>Projets Data Centers</title>
 
 <style>
+:root {
+    --white: #ffffff;
+    --black: #000000;
+    --bh-light-gray: rgb(208, 208, 208);
+    --bh-gray: rgb(148, 148, 148);
+    --bh-dark-green: rgb(5, 50, 43);
+    --bh-green: rgb(1, 131, 116);
+    --bh-light-green: rgb(2, 188, 148);
+    --dark-gold: rgb(219, 130, 31);
+    --gold: rgb(253, 183, 20);
+    --dark-teal: rgb(0, 111, 121);
+    --teal: rgb(0, 165, 184);
 
-:root{
-    --primary:#00C389;
-    --primary-dark:#009E70;
-    --bg:#F6F8F7;
-    --card:#FFFFFF;
-    --text:#111827;
-    --text-light:#6B7280;
-    --border:#E5E7EB;
+    --bg: #f7f8f7;
+    --text: var(--bh-dark-green);
+    --muted: #5f6f6b;
+    --card: var(--white);
+    --border: rgba(5, 50, 43, 0.12);
 }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    font-family: Inter, system-ui, sans-serif;
-    background:var(--bg);
-    color:var(--text);
+body {
+    min-height: 100vh;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background:
+        radial-gradient(circle at top left, rgba(2, 188, 148, 0.18), transparent 32%),
+        radial-gradient(circle at bottom right, rgba(0, 165, 184, 0.16), transparent 34%),
+        var(--bg);
+    color: var(--text);
 }
 
-.container{
-    max-width:1200px;
-    margin:auto;
-    padding:80px 24px;
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 90px 24px;
 }
 
-.hero{
-    text-align:center;
-    margin-bottom:70px;
+.hero {
+    text-align: center;
+    margin-bottom: 70px;
 }
 
-.badge{
-    display:inline-block;
-    padding:8px 16px;
-    border-radius:999px;
-    background:rgba(0,195,137,.1);
-    color:var(--primary-dark);
-    font-size:14px;
-    font-weight:600;
-    margin-bottom:24px;
+.badge {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: rgba(2, 188, 148, 0.12);
+    color: var(--bh-green);
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 24px;
 }
 
-h1{
-    font-size:clamp(3rem,8vw,5rem);
-    font-weight:800;
-    line-height:1;
-    letter-spacing:-2px;
+h1 {
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -2px;
+    color: var(--bh-dark-green);
 }
 
-.subtitle{
-    max-width:600px;
-    margin:24px auto 0;
-    color:var(--text-light);
-    font-size:1.1rem;
+.subtitle {
+    max-width: 720px;
+    margin: 24px auto 0;
+    color: var(--muted);
+    font-size: 1.1rem;
+    line-height: 1.7;
 }
 
-.cards{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:28px;
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
 }
 
-.card{
-    text-decoration:none;
-    color:inherit;
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:24px;
-    padding:32px;
-    min-height:260px;
-    position:relative;
-
-    transition:.25s ease;
+.card {
+    text-decoration: none;
+    color: inherit;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 26px;
+    padding: 32px;
+    min-height: 270px;
+    position: relative;
+    overflow: hidden;
+    transition: 0.25s ease;
+    box-shadow: 0 20px 50px rgba(5, 50, 43, 0.06);
 }
 
-.card:hover{
-    transform:translateY(-6px);
-    border-color:var(--primary);
-    box-shadow:
-    0 20px 50px rgba(0,0,0,.08);
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(2, 188, 148, 0.14), transparent 45%);
+    opacity: 0;
+    transition: 0.25s ease;
 }
 
-.number{
-    color:var(--primary);
-    font-weight:700;
-    font-size:14px;
-    margin-bottom:50px;
+.card:hover {
+    transform: translateY(-7px);
+    border-color: var(--bh-light-green);
+    box-shadow: 0 28px 70px rgba(5, 50, 43, 0.14);
 }
 
-.card h2{
-    font-size:2rem;
-    margin-bottom:10px;
-    letter-spacing:-1px;
+.card:hover::before {
+    opacity: 1;
 }
 
-.card p{
-    color:var(--text-light);
+.number {
+    color: var(--bh-light-green);
+    font-weight: 800;
+    font-size: 14px;
+    margin-bottom: 58px;
+    position: relative;
+    z-index: 1;
 }
 
-.arrow{
-    position:absolute;
-    bottom:24px;
-    right:24px;
-
-    width:52px;
-    height:52px;
-
-    border-radius:50%;
-
-    background:var(--primary);
-    color:white;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:1.3rem;
-    transition:.25s ease;
+.card h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+    color: var(--bh-dark-green);
+    position: relative;
+    z-index: 1;
 }
 
-.card:hover .arrow{
-    transform:rotate(45deg);
-    background:var(--primary-dark);
+.card p {
+    color: var(--muted);
+    position: relative;
+    z-index: 1;
 }
 
-.footer{
-    text-align:center;
-    margin-top:80px;
-    color:var(--text-light);
-    font-size:.9rem;
+.arrow {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--bh-green);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    transition: 0.25s ease;
+    z-index: 1;
 }
 
-@media(max-width:900px){
+.card:hover .arrow {
+    transform: rotate(45deg);
+    background: var(--bh-light-green);
+}
 
-    .cards{
-        grid-template-columns:1fr;
+.footer {
+    text-align: center;
+    margin-top: 80px;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 900px) {
+    .cards {
+        grid-template-columns: 1fr;
     }
 
-    .card{
-        min-height:220px;
+    .card {
+        min-height: 220px;
     }
 
-    h1{
-        font-size:3rem;
+    h1 {
+        font-size: 3rem;
     }
 }
-
 </style>
 </head>
 
@@ -165,7 +194,6 @@ h1{
 <div class="container">
 
     <section class="hero">
-
         <div class="badge">
             External Resources
         </div>
@@ -177,51 +205,29 @@ h1{
         <p class="subtitle">
             Liens vers des projets sur lesquels nous intervenons ou qui contribuent à l'alimentation électrique des data centers.
         </p>
-
     </section>
 
     <section class="cards">
 
-        <a class="card"
-           href="https://kodiakgas.com/power-solutions/"
-           target="_blank">
-
+        <a class="card" href="https://kodiakgas.com/power-solutions/" target="_blank">
             <div class="number">01</div>
-
             <h2>Kodiak Gas</h2>
-
             <p>Power Solutions</p>
-
             <div class="arrow">↗</div>
-
         </a>
 
-        <a class="card"
-           href="https://go.qct.io/qct-ai-pod/"
-           target="_blank">
-
+        <a class="card" href="https://go.qct.io/qct-ai-pod/" target="_blank">
             <div class="number">02</div>
-
             <h2>QCT</h2>
-
             <p>AI Pod</p>
-
             <div class="arrow">↗</div>
-
         </a>
 
-        <a class="card"
-           href="https://dynamisps.com/"
-           target="_blank">
-
+        <a class="card" href="https://dynamisps.com/" target="_blank">
             <div class="number">03</div>
-
             <h2>Dynamis</h2>
-
             <p>Power Solutions</p>
-
             <div class="arrow">↗</div>
-
         </a>
 
     </section>
